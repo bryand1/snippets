@@ -1,3 +1,6 @@
+"""
+Log uncaught exceptions using sys.excepthook
+"""
 import logging
 import sys
 import traceback
