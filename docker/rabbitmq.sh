@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Start RabbitMQ with management plugin
 docker run -d --hostname my-rabbit \
   --name my-rabbit \
