@@ -1,0 +1,5 @@
+gcloud beta compute --project=[project-name] instances create [instance-name] --zone=us-west1-a --machine-type=n1-standard-2 --subnet=default --network-tier=PREMIUM --metadata=ssh-keys=[key-name]:ssh-rsa\ AAAAB3Nza[...REDACTED...]C459FQ==\ [key-name] --maintenance-policy=MIGRATE --service-account=[service-account] --scopes=https://www.googleapis.com/auth/cloud-platform --tags=http-server,https-server --image=ubuntu-1604-xenial-v20180612 --image-project=ubuntu-os-cloud --boot-disk-size=64GB --boot-disk-type=pd-ssd --boot-disk-device-name=[disk-device-name]
+
+gcloud compute --project=[project-name] firewall-rules create default-allow-http --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
+
+gcloud compute --project=[project-name] firewall-rules create default-allow-https --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 --target-tags=https-server
