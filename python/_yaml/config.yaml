@@ -1,0 +1,11 @@
+version: 0.1
+user:
+  email: bryand1@gmail.com
+  type: premium
+content:
+  articles:
+  - id: 1651931
+    source: techcrunch.rss
+    date: 2018-06-05 19:15:54
+    title: Apple Podcasts now hosts more than 550,000 active shows
+    link: https://techcrunch.com/2018/06/05/apple-podcasts-now-hosts-more-than-555000-active-shows/
