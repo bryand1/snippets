@@ -43,5 +43,6 @@ kubectl create -f example.yaml
 
 #### References
 
-[How to access private Docker registry from Kubernetes](https://stackoverflow.com/questions/36232906/how-to-access-private-docker-hub-repository-from-kubernetes-on-vagrant)
-[How to change Docker registry to private registry](https://stackoverflow.com/questions/33054369/how-to-change-the-default-docker-registry-from-docker-io-to-my-private-registry)
+  [How to access private Docker registry from Kubernetes](https://stackoverflow.com/questions/36232906/how-to-access-private-docker-hub-repository-from-kubernetes-on-vagrant)
+  [Creating a secret with a Docker config](https://kubernetes.io/docs/concepts/containers/images/#using-a-private-registry)
+  [How to change Docker registry to private registry](https://stackoverflow.com/questions/33054369/how-to-change-the-default-docker-registry-from-docker-io-to-my-private-registry)
