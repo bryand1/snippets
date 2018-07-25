@@ -99,7 +99,7 @@ spec:
       image: DOCKER_USER/PRIVATE_REPO_NAME
       imagePullPolicy: Always
       command: ["python"]
-      args: ["-c", "iimport os; print(os.environ)"]
+      args: ["-c", "import os; print(os.environ)"]
       envFrom:
         - configMapRef:
             name: example-configmap
