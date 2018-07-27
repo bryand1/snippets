@@ -1,5 +1,7 @@
 *.py[oc]
 __pycache__
 venv
+build
+*.so
 .*
 !.gitignore
