@@ -1,0 +1,2 @@
+npm info "eslint-config-airbnb@latest" peerDependencies
+npx install-peerdeps --dev eslint-config-airbnb
