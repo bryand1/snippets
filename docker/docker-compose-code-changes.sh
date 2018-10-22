@@ -12,5 +12,5 @@ docker-compose up -d --build worker
 # Lifecycle
 docker-compose stop worker
 docker-compose rm worker 
-docker-compose create worker
+docker-compose up --no-start worker
 docker-compose start worker
