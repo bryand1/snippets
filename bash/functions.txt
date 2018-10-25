@@ -1,0 +1,6 @@
+# https://ss64.com/bash/function.html
+
+Functions are declared using this syntax:
+
+[ function ] name () { command-list; }
+This defines a shell function named name. The reserved word function is optional.
