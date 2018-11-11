@@ -1,12 +1,12 @@
 function makeIterator(array) {
-    let index = 0
-    return {
-        next: function() {
-            return index < arr.length ?
-                {value: arr[index++], done: false} :
-                {done: true};
-        }
-    };
+  let index = 0
+  return {
+    next: function() {
+      return index < arr.length ?
+        {value: arr[index++], done: false} :
+        {done: true};
+      }
+  };
 }
 
 arr = [1, 2, 3]
