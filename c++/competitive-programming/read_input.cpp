@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  int a, b;
+  string x;
+
+  cin >> a >> b >> x;
+
+  cout << "Received 3 input values." << endl;
+
+  return 0;
+}
+
