@@ -12,11 +12,13 @@ resource "aws_vpc" "mysql" {
   }
 }
 
-resource "aws_subnet" "subnet1" {
-    vpc_id = "${aws_vpc.mysql.id}"
-    cidr_block = "${var.subnet_cidr}"
+resource "aws_subnet" "subnets" {
+  count = "${length(data.aws_availability_zones.azs.names)}"
+  availability_zone = "${element(data.aws_availability_zones.azs.names, count.index)}"
+  vpc_id = "${aws_vpc.mysql.id}"
+  cidr_block = "${element(var.subnet_cidr, count.index)}"
 
-    tags {
-        Name = "Subnet1"
-    }
+  tags {
+    Name = "Subnet-${count.index+1}"
+  }
 }

@@ -7,5 +7,13 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_cidr" {
-  default = "190.160.1.0/24"
+  type = "list"
+  default = ["190.160.1.0/24", "190.160.2.0/24", "190.160.3.0/24"]
 }
+
+# variable "azs" {
+#     type = "list"
+#     default = ["us-west-1a", "us-west-1b", "us-west-1c"]
+# }
+
+data "aws_availability_zones" "azs" {}
