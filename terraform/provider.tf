@@ -1,9 +1,9 @@
 provider "aws" {
-    region = "us-west-1"
+    region = "${var.region}"
 }
 
 resource "aws_vpc" "mysql" {
-  cidr_block = "190.160.0.0/16"
+  cidr_block = "${var.vpc_cidr}"
   instance_tenancy = "default"
 
   tags {
@@ -14,7 +14,7 @@ resource "aws_vpc" "mysql" {
 
 resource "aws_subnet" "subnet1" {
     vpc_id = "${aws_vpc.mysql.id}"
-    cidr_block = "190.160.1.0/24"
+    cidr_block = "${var.subnet_cidr}"
 
     tags {
         Name = "Subnet1"
