@@ -33,7 +33,7 @@ def minheapify(arr, n, i):
 def heapsort(arr, reverse=False):
     heapify = minheapify if reverse else maxheapify
     n = len(arr)
-    for i in range(n - 1, -1, -1):
+    for i in range(n // 2, -1, -1):
         heapify(arr, n, i)
     for i in range(n - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
@@ -41,7 +41,7 @@ def heapsort(arr, reverse=False):
 
 
 if __name__ == '__main__':
-    x = [12, 11, 13, 5, 6, 7]
-    heapsort(x, reverse=True)
+    x = [12, 11, 13, 5, 6, 7, 100, 101, 99, 2, 1]
+    heapsort(x)
     print("Sorted array is: ")
     print(x)
