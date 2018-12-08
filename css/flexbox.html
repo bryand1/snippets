@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Flexbox</title>
+    <style>
+      body, html, * {
+        padding: 0; margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* flex-flow: row wrap; */
+        justify-content: flex-start;
+        background-color: lightgreen;
+        align-items: flex-start;
+        align-content: space-around;
+      }
+      .item {
+        background: #00AEFF;
+        width: 200px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow: hidden;
+      }
+      .item2 {
+        background: #cc3300;
+        width: 200px;
+        flex-grow: 2;
+      }
+      .paper {
+        height: 231px;
+
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Calibri', sans-serif;
+        color: rgb(255, 255, 255);
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item"><div class="paper">#1</div></div>
+      <div class="item"><div class="paper"><img src="image.jpg"/></div></div>
+      <div class="item"><div class="paper">#3</div></div>
+      <div class="item"><div class="paper">#4</div></div>
+      <div class="item"><div class="paper">#5</div></div>
+      <div class="item2"><div class="paper">#6</div></div>
+    </div>
+  </body>
+</html>
