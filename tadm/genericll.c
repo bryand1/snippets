@@ -34,6 +34,12 @@ void print_float(void *f) {
     printf(" %f", *(float *)f);
 }
 
+struct Node *search_list(struct Node *node, void *value) {
+    if (node == NULL) return NULL;
+    if (*(int *)(node->data) == *(int *)value) return node;
+    return search_list(node->next, value);
+}
+
 // Driver to test functions
 int main(void) {
     struct Node *start = NULL;
@@ -48,5 +54,11 @@ int main(void) {
     printf("Created integer linked list is: ");
     print_list(start, print_int);
     printf("\n");
+
+    // Search list
+    int value = 30;
+    struct Node *sr = search_list(start, (void *)&value);
+    printf("Found the following: %d\n", *(int *)sr->data);
+
     return 0;
 }
