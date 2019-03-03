@@ -85,6 +85,8 @@ class AVL_Tree:
         if balance < -1 and self.get_balance(root.right) > 0:
             root.right = self.right_rotate(root.right)
             return self.left_rotate(root)
+        
+        return root
 
     def left_rotate(z):
         y = z.right
