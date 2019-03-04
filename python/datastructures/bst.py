@@ -23,12 +23,15 @@ def search(root, key):
 def insert(root, key):
     if root is None:
         return Node(key)
-    elif root.val == key:
+
+    if root.val == key:
         return root
-    elif key < root.val:
+
+    if key < root.val:
         root.left = insert(root.left, key)
     else:
         root.right = insert(root.right, key)
+
     return root
 
 
@@ -54,7 +57,7 @@ def max_node(root):
 
 
 def delete(root, key):
-    if root is None:
+    if not root:
         return root
     if key < root.val:
         root.left = delete(root.left, key)
@@ -71,7 +74,7 @@ def delete(root, key):
             return temp
         temp = min_node(root.right)
         root.val = temp.val
-        root.right = delete(root.right, key)    
+        root.right = delete(root.right, temp.val)    
     return root
 
 
