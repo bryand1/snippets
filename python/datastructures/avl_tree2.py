@@ -126,7 +126,7 @@ class AVL_Tree:
     def get_balance(self, root):
         if not root:
             return 0
-        return root.left - root.right
+        return self.get_height(root.left) - self.get_height(root.right)
 
     def get_minimum(self, root):
         if root is None or root.left is None:
