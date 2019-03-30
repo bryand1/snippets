@@ -1,5 +1,11 @@
 from math import exp, log, pow
 
+
+def round_years(yr):
+    """Round years to two decimal places"""
+    return round(yr, 2)
+
+
 class CompoundInterestException(ValueError):
     """"""
 
@@ -68,6 +74,7 @@ class CompoundInterest(BaseCI, USD):
     """
     A = P * (1 + r/n) ^ (nt)
     P = A / (1 + r/n) ^ (nt)
+    t = ln(A / P) / (n * ln(1 + r/n))
     """
 
     def accrued_amount(self):
@@ -92,10 +99,23 @@ class CompoundInterest(BaseCI, USD):
         self._cache['P'] = P
         return P
 
+    def time(self):
+        o = self._params
+        if o.t is not None:
+            return o.t
+        cached = self._cache.get('t')
+        if cached is not None:
+            return cached
+        t = round_years(log(o.A / o.P) / (o.n * log(1 + o.r / o.n)))
+        self._cache['t'] = t
+        return t
+
+
 class ContinuousCompoundInterest(BaseCI, USD):
     """
     A = P * e ^ (rt)
     P = A / e ^ (rt)
+    t = ln(A / P) / r
     """
 
     def accrued_amount(self):
@@ -120,12 +140,24 @@ class ContinuousCompoundInterest(BaseCI, USD):
         self._cache['P'] = P
         return P
 
+    def time(self):
+        o = self._params
+        if o.t is not None:
+            return o.t
+        cached = self._cache.get('t')
+        if cached is not None:
+            return cached
+        t = round_years(log(o.A / o.P) / o.r)
+        self._cache['t'] = t
+        return t
+
 
 def display(p: BaseParams, c: BaseCI) -> None:
     print(p)
     print("Accrued Amount: ${:.2f}".format(c.accrued_amount()))
     print("Principal: ${:.2f}".format(c.principal()))
     print("Profit: ${:.2f}".format(c.accrued_amount() - c.principal()))
+    print("Years: {:.2f}".format(c.time()))
     print()
 
 
@@ -153,3 +185,13 @@ if __name__ == '__main__':
     except CompoundInterestException as e:
         print(p4)
         print(e)
+
+    # Example 5: Find time when given accrued amount, principal, rate
+    p5 = CompoundInterestParams(A=1250000, P=1000000, r=0.1, n=365)
+    c5 = CompoundInterest(p5)
+    display(p5, c5)
+
+    # Example 6: Find time when given accrued amount, principal, rate, continuous
+    p6 = ContinuousCompoundInterestParams(A=1250000, P=1000000, r=0.1)
+    c6 = ContinuousCompoundInterest(p6)
+    display(p6, c6)
