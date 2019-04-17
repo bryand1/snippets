@@ -6,10 +6,10 @@ def topologicalsort(dag):
     for u in dag:
         for v in dag[u]:
             in_degree[v] += 1
-    q = deque()
+    q = []
     for u in in_degree:
         if in_degree[u] == 0:
-            q.appendleft(u)
+            q.append(u)
     t = []
     while q:
         u = q.pop()
@@ -17,7 +17,7 @@ def topologicalsort(dag):
         for v in dag[u]:
             in_degree[v] -= 1
             if in_degree[v] == 0:
-                q.appendleft(v)
+                q.append(v)
     if len(t) == len(dag):
         return t
     else:
