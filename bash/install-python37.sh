@@ -12,12 +12,15 @@ sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev
 sudo apt-get install libssl-dev openssl
 sudo apt-get install libffi-dev
 
-wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
-xz -d Python-3.7.0.tar.xz
-tar -xvf Python-3.7.0.tar
-cd Python-3.7.0
+# Added May 17, 2019
+sudo apt-get install libbz2-dev
+sudo apt-get install libreadline-dev
+
+wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz
+xz -d Python-3.7.3.tar.xz
+tar -xvf Python-3.7.3.tar
+cd Python-3.7.3
 
 ./configure --prefix=/usr/local
 make
 sudo make altinstall
-
