@@ -1,0 +1,3 @@
+Learning how to program in Ruby is fun.
+I am learning about files.
+I am reading and writing to files.
