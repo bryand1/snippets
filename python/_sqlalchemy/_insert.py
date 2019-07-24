@@ -70,3 +70,10 @@ r = conn.execute(ins, [
 
 r.rowcount  # 2
 
+"""
+INSERT IGNORE
+"""
+s = insert(customers).values(**values).prefix_with("IGNORE")
+
+# sqlite
+s = insert(customers).values(**values).prefix_with("OR IGNORE")
