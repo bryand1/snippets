@@ -439,3 +439,19 @@ s = select([items]).where(
     text("items.name like 'Wa%'")
 ).order_by(text("items.id desc"))
 
+
+"""
+SELECT large amounts of data by streaming the results
+"""
+s = select([tables.very_large_table]).where(column != None)
+r = conn.execution_options(stream_results=True).execute(s)
+
+while True:
+    batch = r.fetchmany(10)
+
+    if not batch:
+        break
+    
+    for row in batch:
+        # do stuff here
+r.close()
