@@ -32,7 +32,7 @@ const TimerQueue = function() {
 }
 
 tq = TimerQueue();
-tq.addTask(() => console.log('show snackbar'), 0);
-tq.addTask(() => console.log('hide snackbar'), 1000);
-tq.addTask(() => console.log('show snackbar 2'), 0);
-tq.addTask(() => console.log('hide snackbar 2'), 1000);
+tq.addTask(() => console.log('show snackbar #1'), 0);
+tq.addTask(() => console.log('hide snackbar #1'), 2000);
+tq.addTask(() => console.log('show snackbar #2'), 0);
+tq.addTask(() => console.log('hide snackbar #2'), 2000);
