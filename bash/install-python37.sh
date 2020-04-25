@@ -16,10 +16,10 @@ sudo apt-get install libffi-dev
 sudo apt-get install libbz2-dev
 sudo apt-get install libreadline-dev
 
-wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz
-xz -d Python-3.7.3.tar.xz
-tar -xvf Python-3.7.3.tar
-cd Python-3.7.3
+wget https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tar.xz
+xz -d Python-3.7.5.tar.xz
+tar -xvf Python-3.7.5.tar
+cd Python-3.7.5
 
 ./configure --prefix=/usr/local
 make
