@@ -1,0 +1,23 @@
+Google Cloud - Resize block device attached to VM
+https://cloud.google.com/compute/docs/disks/add-persistent-disk
+
+Create snapshot of disk
+The VM does NOT need to be stopped in order to resize the disk
+
+Ensure we are targeting the correct disk:
+`gcloud compute disks describe match-staging --zone us-west1-b`
+
+Resize the disk in GB:
+`gcloud compute disks resize match-staging --size 1024 --zone us-west1-b`
+
+Log in to server and run:
+
+df -Th
+
+sudo lsblk
+
+sudo growpart /dev/DEVICE_ID PARTITION_NUMBER
+sudo growpart /dev/sda 1
+
+sudo resize2fs /dev/DEVICE_IDPARTITION_NUMBER
+sudo resize2fs /dev/sda1
